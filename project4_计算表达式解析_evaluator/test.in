@@ -1,0 +1,7 @@
+Func gcd(a,b)=b?gcd(b,a%b):a
+Func jc(n)=n?n*jc(n-1):1
+Func fib(n)=n<=2?1:fib(n-1)+fib(n-2)
+Func square(x)=x*x
+Func cube(x)=x*x*x
+Func qpow(a,n)=n?(square(qpow(a,n/2))*(n%2?a:1)):1
+Func qpowm(a,n,mod)=n?(square(qpowm(a,n/2,mod))%mod*(n%2?a:1)%mod):1%mod

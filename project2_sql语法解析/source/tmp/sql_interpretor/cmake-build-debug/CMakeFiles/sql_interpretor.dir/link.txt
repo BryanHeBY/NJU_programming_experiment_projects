@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/sql_interpretor.dir/main.cpp.o CMakeFiles/sql_interpretor.dir/DObject.cpp.o CMakeFiles/sql_interpretor.dir/DTable.cpp.o CMakeFiles/sql_interpretor.dir/DFunc.cpp.o CMakeFiles/sql_interpretor.dir/DCol.cpp.o CMakeFiles/sql_interpretor.dir/DExpr.cpp.o  -o sql_interpretor 

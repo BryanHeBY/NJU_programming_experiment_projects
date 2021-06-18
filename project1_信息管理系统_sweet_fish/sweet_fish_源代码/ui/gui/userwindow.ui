@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UserWindow</class>
+ <widget class="QMainWindow" name="UserWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>910</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>甜鱼: 用户使用界面</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton {
+    border: none;
+    border-radius: 4px;
+	padding: 4px;
+	margin: 4px; 
+    background-color: rgb(54, 125, 221);
+    color: white;
+}
+QLineEdit{
+	border: 1px solid black;
+	border-radius: 4px;
+	padding: 4px;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="show_money">
+          <property name="text">
+           <string>查看我的余额</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="user_charge">
+          <property name="text">
+           <string>账户充值</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="user_change_inf">
+          <property name="text">
+           <string>修改我的用户信息</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="send_messages">
+          <property name="text">
+           <string>发送留言</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="show_my_receive_messages">
+          <property name="text">
+           <string>查看我收到的留言</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="show_my_send_messages">
+          <property name="text">
+           <string>查看我发出的留言</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>卖家操作:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="post_mer">
+          <property name="text">
+           <string>发布商品</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="remove_mer">
+          <property name="text">
+           <string>下架商品</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="change_mer_inf">
+          <property name="text">
+           <string>修改我的商品信息</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="show_my_sell_mer">
+          <property name="text">
+           <string>查看我发布的商品</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="show_my_sell_order_form">
+          <property name="text">
+           <string>查看我卖出的订单</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="2" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>买家操作:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="show_all_mer">
+          <property name="text">
+           <string>查看所有商品</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="change_mer_show_mode">
+          <property name="text">
+           <string>修改商品查看选项</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="search_mer">
+          <property name="text">
+           <string>搜索商品</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="buy_mer">
+          <property name="text">
+           <string>购买商品</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="show_my_buy_order_form">
+          <property name="text">
+           <string>查看我买入的订单</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTableView" name="uni_table"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>910</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>文件</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>用户操作</string>
+    </property>
+    <addaction name="menu_show_money"/>
+    <addaction name="menu_user_charge"/>
+    <addaction name="menu_user_change_inf"/>
+    <addaction name="separator"/>
+    <addaction name="menu_user_logout"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>卖家操作</string>
+    </property>
+    <addaction name="menu_post_mer"/>
+    <addaction name="menu_remove_mer"/>
+    <addaction name="menu_change_mer_inf"/>
+    <addaction name="menu_show_my_sell_mer"/>
+    <addaction name="menu_show_my_sell_order_form"/>
+   </widget>
+   <widget class="QMenu" name="menu_4">
+    <property name="title">
+     <string>买家操作</string>
+    </property>
+    <addaction name="menu_show_all_mer"/>
+    <addaction name="menu_change_mer_show_mode"/>
+    <addaction name="menu_search_mer"/>
+    <addaction name="menu_buy_mer"/>
+    <addaction name="menu_show_my_buy_order_form"/>
+   </widget>
+   <widget class="QMenu" name="menu_5">
+    <property name="title">
+     <string>留言操作</string>
+    </property>
+    <addaction name="menu_send_messages"/>
+    <addaction name="menu_show_my_receive_messages"/>
+    <addaction name="menu_show_my_send_messages"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_5"/>
+   <addaction name="menu_3"/>
+   <addaction name="menu_4"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="menu_show_money">
+   <property name="text">
+    <string>查看用户余额</string>
+   </property>
+  </action>
+  <action name="menu_user_charge">
+   <property name="text">
+    <string>账户充值</string>
+   </property>
+  </action>
+  <action name="menu_user_messages_mode">
+   <property name="text">
+    <string>用户留言模块</string>
+   </property>
+  </action>
+  <action name="menu_user_change_inf">
+   <property name="text">
+    <string>修改我的用户信息</string>
+   </property>
+  </action>
+  <action name="menu_post_mer">
+   <property name="text">
+    <string>发布商品</string>
+   </property>
+  </action>
+  <action name="menu_remove_mer">
+   <property name="text">
+    <string>下架商品</string>
+   </property>
+  </action>
+  <action name="menu_change_mer_inf">
+   <property name="text">
+    <string>修改我的商品信息</string>
+   </property>
+  </action>
+  <action name="menu_show_my_sell_mer">
+   <property name="text">
+    <string>查看我发布的商品</string>
+   </property>
+  </action>
+  <action name="menu_show_my_sell_order_form">
+   <property name="text">
+    <string>查看我卖出的订单</string>
+   </property>
+  </action>
+  <action name="menu_show_all_mer">
+   <property name="text">
+    <string>查看所有商品</string>
+   </property>
+  </action>
+  <action name="menu_change_mer_show_mode">
+   <property name="text">
+    <string>修改商品查看选项</string>
+   </property>
+  </action>
+  <action name="menu_search_mer">
+   <property name="text">
+    <string>搜索商品</string>
+   </property>
+  </action>
+  <action name="menu_buy_mer">
+   <property name="text">
+    <string>购买商品</string>
+   </property>
+  </action>
+  <action name="menu_show_my_buy_order_form">
+   <property name="text">
+    <string>查看我买入的订单</string>
+   </property>
+  </action>
+  <action name="menu_send_messages">
+   <property name="text">
+    <string>发送留言</string>
+   </property>
+  </action>
+  <action name="menu_show_my_receive_messages">
+   <property name="text">
+    <string>查看我收到的留言</string>
+   </property>
+  </action>
+  <action name="menu_show_my_send_messages">
+   <property name="text">
+    <string>查看我发出的留言</string>
+   </property>
+  </action>
+  <action name="menu_user_logout">
+   <property name="text">
+    <string>用户注销</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

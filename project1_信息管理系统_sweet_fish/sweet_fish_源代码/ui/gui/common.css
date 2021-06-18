@@ -1,0 +1,20 @@
+@keyframes button_animation {
+    from {
+        background-color: rgb(54, 125, 221);
+    }
+    to {
+        background-color: rgb(37, 92, 182);
+        color: rgb(230, 223, 223);
+    }
+}
+
+QPushButton {
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(54, 125, 221);
+    color: white;
+}
+QPushButton:hover {
+    animation: button_animation 0.5s;
+    animation-fill-mode: forwards;
+}

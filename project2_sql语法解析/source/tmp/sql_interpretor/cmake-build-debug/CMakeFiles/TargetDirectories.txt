@@ -1,0 +1,3 @@
+/home/hby/project/CLionProjects/sql_interpretor/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/hby/project/CLionProjects/sql_interpretor/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/hby/project/CLionProjects/sql_interpretor/cmake-build-debug/CMakeFiles/sql_interpretor.dir

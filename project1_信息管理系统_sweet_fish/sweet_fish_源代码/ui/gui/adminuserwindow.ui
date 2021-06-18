@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AdminUserWindow</class>
+ <widget class="QMainWindow" name="AdminUserWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>907</width>
+    <height>603</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>甜鱼: 管理员用户使用界面</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton {
+    border: none;
+    border-radius: 4px;
+	padding: 4px;
+	margin: 4px; 
+    background-color: rgb(54, 125, 221);
+    color: white;
+}
+QLineEdit{
+	border: 1px solid black;
+	border-radius: 4px;
+	padding: 4px;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="show_all_users">
+          <property name="text">
+           <string>显示所有用户</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="show_all_mer">
+          <property name="text">
+           <string>显示所有商品</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="change_mer_show_mode">
+          <property name="text">
+           <string>修改商品查看条件</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="show_all_order_form">
+          <property name="text">
+           <string>显示所有订单</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="show_all_messages">
+          <property name="text">
+           <string>显示所有留言</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QPushButton" name="admin_user_inf_change">
+          <property name="text">
+           <string>修改管理员用户信息</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="admin_delete_user">
+          <property name="text">
+           <string>删除用户</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="admin_remove_mer">
+          <property name="text">
+           <string>下架商品</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="admin_search_user">
+          <property name="text">
+           <string>查询用户信息</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="search_mer">
+          <property name="text">
+           <string>查询商品信息</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="admin_search_order_form">
+          <property name="text">
+           <string>查询订单信息</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="admin_search_message">
+          <property name="text">
+           <string>查询留言信息</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTableView" name="uni_table"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>907</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>文件</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>用户</string>
+    </property>
+    <addaction name="menu_user_inf_change"/>
+    <addaction name="menu_logout"/>
+    <addaction name="separator"/>
+    <addaction name="menu_show_all_users"/>
+    <addaction name="menu_admin_search_user"/>
+    <addaction name="menu_admin_delete_user"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>商品</string>
+    </property>
+    <addaction name="menu_admin_remove_mer"/>
+    <addaction name="menu_show_all_mer"/>
+    <addaction name="menu_change_mer_show_mode"/>
+    <addaction name="menu_search_mer"/>
+   </widget>
+   <widget class="QMenu" name="menu_4">
+    <property name="title">
+     <string>订单</string>
+    </property>
+    <addaction name="menu_show_all_order_form"/>
+    <addaction name="menu_admin_search_order_form"/>
+   </widget>
+   <widget class="QMenu" name="menu_5">
+    <property name="title">
+     <string>留言</string>
+    </property>
+    <addaction name="menu_show_all_message"/>
+    <addaction name="menu_admin_search_message"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_3"/>
+   <addaction name="menu_4"/>
+   <addaction name="menu_5"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="menu_user_inf_change">
+   <property name="text">
+    <string>管理员用户信息修改</string>
+   </property>
+  </action>
+  <action name="menu_logout">
+   <property name="text">
+    <string>管理员账号注销</string>
+   </property>
+  </action>
+  <action name="menu_show_all_users">
+   <property name="text">
+    <string>查看所有用户</string>
+   </property>
+  </action>
+  <action name="menu_show_all_mer">
+   <property name="text">
+    <string>查看所有商品</string>
+   </property>
+  </action>
+  <action name="menu_admin_search_user">
+   <property name="text">
+    <string>查询用户信息</string>
+   </property>
+  </action>
+  <action name="menu_admin_delete_user">
+   <property name="text">
+    <string>删除用户</string>
+   </property>
+  </action>
+  <action name="menu_search_mer">
+   <property name="text">
+    <string>查询商品信息</string>
+   </property>
+  </action>
+  <action name="menu_change_mer_show_mode">
+   <property name="text">
+    <string>修改商品查看条件</string>
+   </property>
+  </action>
+  <action name="menu_show_all_order_form">
+   <property name="text">
+    <string>查看所有订单</string>
+   </property>
+  </action>
+  <action name="menu_admin_search_order_form">
+   <property name="text">
+    <string>查询订单信息</string>
+   </property>
+  </action>
+  <action name="menu_show_all_message">
+   <property name="text">
+    <string>查看所有留言</string>
+   </property>
+  </action>
+  <action name="menu_admin_search_message">
+   <property name="text">
+    <string>查询留言信息</string>
+   </property>
+  </action>
+  <action name="menu_admin_remove_mer">
+   <property name="text">
+    <string>下架商品</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

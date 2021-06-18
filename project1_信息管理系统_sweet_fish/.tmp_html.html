@@ -1,0 +1,142 @@
+<!Doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>甜鱼二手商品交易平台扩展功能用户手册</title>
+<link href="http://apps.bdimg.com/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+<script src="http://apps.bdimg.com/libs/highlight.js/9.1.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+    html{
+        padding:64px 80px;
+    }
+    .qblock{
+        padding:8px 6px 8px 10px;
+        background-color:#eee;
+        border-left:8px #bbb solid;
+    }
+    table{
+        border-collapse: collapse;
+        box-sizing: border-box;
+    }
+    thead tr{
+        background:#ddd;
+    }
+    tbody tr:nth-child(odd){
+        background:#fff;
+    }
+    tbody tr:nth-child(even){
+        background:#eee;
+    }
+    th{
+        border: 1px solid black;
+    }
+    td{
+        border: 1px solid black;
+    }
+    h1, h2, h3, h4, h5, h6{
+        border-bottom: 1px solid #ddd;
+    }
+</style>
+
+</head>
+<body>
+	<h1><div style="text-align:center;">甜鱼二手商品交易平台扩展功能用户手册</div></h1>
+	<p><div style="text-align:right;">Authored By BryanHeBY</div></p>
+	<p><s>拓展功能(x)</s></p>
+	<p><s>卷分功能(√)</s></p>
+	<p>&emsp;&emsp;&emsp;<s><small>(小声</small></s></p>
+	<p><HR></p>
+	<h2>一、<s>华丽的</s>GUI界面<s>(x</s></h2>
+	<p><s>优美的按钮图案与配色设计，价值两百万的文本框圆角设计，我愿称之为<strong>华丽的</strong>UI界面</s></p>
+	<p>具体界面可以现场展示或在PPT中展示</p>
+	<h2>二、<s>优秀的</s>底层代码设计</h2>
+	<p>在本程序源码当中，我基本完成了一个<s>极</s>低效率的sql引擎，使程序的从用户、到商品、到订单再到留言都是统一的数据表对象，并成功提供各类接口(这也是为什么不同类型表格能够在同一个GUI表格中展示)，下面是我将sql伪代码转化成的tables的接口</p>
+	<pre><code>sql::CREATE TABLE {table} ({{var_name var_type_id(var_size),} for var in vars_list});
+table(int vars_num,const vector&lt;fixed_chars&gt; &amp;vars_name,
+	const vector&lt;int&gt; &amp;vars_type_id,const vector&lt;int&gt; &amp;vars_size,int counter=0,
+	char pre_token='A',bool open_map_accelerate= false);
+
+sql::INSERT INTO {table} VALUES ({value for value in values});
+void insert(const vector&lt;db_type&gt; &amp;values);
+
+sql::SELECT * FROM {table} WHERE {table[td+key]}(*judge){value};
+table select(int td_key,const db_type &amp;value,bool (*judge)(const db_type&amp;,const db_type&amp;))const;
+
+sql::UPDATE {table} SET {table[to_key]}={to_value} WHERE {table[td_key]}(*judge){pre_value};
+void update(int td_key,const db_type &amp;pre_value,int to_key,
+	const db_type &amp;to_value,bool (*judge)(const db_type&amp;,const db_type&amp;));
+
+sql::DELETE from {table} WHERE {table[td+key]}(*judge){value};
+void Delete(int td_key,const db_type &amp;value,bool (*judge)(const db_type&amp;,const db_type&amp;));
+
+sql::SELECT * FROM {table} ORDER BY {table[td_key]} {sort_lesser?}ASC{:}DESC;
+void tr_sort(int td_key,bool sort_lesser);
+table tr_sorted(int td_key,bool sort_lesser)const;
+
+sql::SELECT {table[td_key] for td_key in td_vars} FROM {table};
+table sub_table(const vector&lt;int&gt; &amp;td_vars)const;
+
+sql::SELECT * FROM {table} LIMIT {limit_num};
+table limit(int limit_num)const;
+</code></pre>
+	<h2>三、用户留言功能</h2>
+	<p>普通用户登录之后，在菜单栏 -> 留言操作中有下列操作</p>
+	<ul>
+		<li>发送留言</li>
+		<li>查看我收到的留言</li>
+		<li>查看我发出的留言</li>
+	</ul>
+	<p>点击查看留言选项，对应留言将显示到主窗口主表格视图上</p>
+	<h2>四、添加商品分类功能</h2>
+	<p>该功能使用方法:</p>
+	<ul>
+		<li>在商品发布界面，输入商品分类，不同分类标签之间需要用";"(英文半角)符号分割</li>
+		<li>在商品搜索界面，可以根据商品分类进行搜索，不同分类同样需要用";"隔开，分类标签完全匹配，但分类标签之间的顺序并不影响搜索结果</li>
+	</ul>
+	<h2>五、扩展商品在表格中的陈列顺序选项</h2>
+	<p>本程序将商品的</p>
+	<ul>
+		<li>MID</li>
+		<li>商品名</li>
+		<li>价格</li>
+		<li>商品上架时间</li>
+		<li>卖家UID</li>
+	</ul>
+	<p>作为排序键值，选择对键值进行<strong>顺序\倒叙</strong>排序，并设置<strong>排除下架、售出商品</strong>选项，将根据商品陈列选项调整过的表格重新显示在主表格视图当中，点击<strong>修改商品查看选项</strong>按钮即可使用该功能</p>
+	<h2>六、扩展搜索商品选项</h2>
+	<p>本程序可根据商品</p>
+	<ul>
+		<li>MID</li>
+		<li>商品名(完全匹配)</li>
+		<li>商品名(包含模糊匹配)</li>
+		<li>卖家UID</li>
+		<li>商品类别</li>
+	</ul>
+	<p>进行商品搜索，点击<strong>搜索商品</strong>按钮即可使用该功能</p>
+	<h2>七、<s>良好的</s>错误提示</h2>
+	<p>本程序遇到<s>几乎</s>所有输入错误都会弹出<s>含有大红色错误感叹号的</s>错误提示框，而源代码采用异常处理的 throw - try - catch 三连，使错误提示变得灵活，以下是程序会弹出的部分错误提示</p>
+	<ol>
+		<li>"001","你的输入超过长度限制!\n"</li>
+		<li>"403","登录失败: 用户不存在.\n"</li>
+		<li>"404","登录失败: 密码错误.\n"</li>
+		<li>"408","注册失败: 用户名为空!\n"</li>
+		<li>"409","注册失败: 密码为空!\n"</li>
+		<li>"405","金钱操作失败: 您输入的用户不存在!\n"</li>
+		<li>"401","您输入的用户不存在!\n"</li>
+		<li>"501","您输入的商品不存在!\n"</li>
+		<li>"504","您输入的商品无法操作!\n"</li>
+		<li>"506","该商品不是您发布的，您无法操作!\n"</li>
+		<li>"502","商品名不能为空!\n"</li>
+		<li>"503","价格必须为正数!\n"</li>
+		<li>"506","您不能购买自己的商品!\n"</li>
+		<li>"701","留言内容为空!\n"</li>
+		<li>"900","充值的金额必须是正数\n"</li>
+	</ol>
+	<h2>八、<s>庞大的代码代码量(狗头</s></h2>
+	<p><img alt="代码" src="fxxk.png" style="max-width:100%;"></p>
+	<p>上面是整个代码工程编译生成的所有类头文件，连接文件以及QT-UI界面生成的头文件....</p>
+	<p><s>不说了，肝疼，呜呜呜</s></p>
+
+</body>
+</html>

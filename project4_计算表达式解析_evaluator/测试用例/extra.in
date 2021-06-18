@@ -1,0 +1,13 @@
+-+1
+-10+5---3/10++10
+Func not(p)=p?0:1
+not(0-1)
+not(not(0))
+10+5?3:2+10/2.0
+(5-5)?3+1:1
+Func Fact(r)=r?Fact(r-1)*r:1
+Func Pow(s,exp)=exp?Pow(s,exp-1)*s:1
+Func sin(t,len)=(len+1)?Pow(0-1,len)/Fact(2*len+1)*Pow(t,2*len+1)+sin(t,len-1):0
+Fact(10)/Fact(9)
+Pow(2,10)
+sin(3.14159/2,10)

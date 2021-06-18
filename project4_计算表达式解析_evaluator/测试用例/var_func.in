@@ -1,0 +1,25 @@
+Var x=2.0
+Var y=0
+Var z=y-x
+Func f(a)=a+1
+Func g(b)=b*b
+Func h(c,d)=f(c)+g(d)
+Func F(e,i,j,k)=(e+i)*j-k/1.0
+SHOW VARS
+SHOW FUNCS
+z
+f(2.5)
+g(2.5)
+f(h(x,y))
+F(1,2,f(2),4)
+f(h(1,f(h(2,f(h(3,4))))))
+x=1+2.0-3*4+5/2
+SHOW VARS
+Var w=f(1*2-3/4+5*g(x))
+w
+g((g(w)+g(x)))-g(g(w))-g(g(x))-2*g(w)*g(x)
+Func GG(m)=m+x
+GG(1.0)
+Var n=g(x)
+SHOW VARS
+1+n
